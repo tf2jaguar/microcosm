@@ -26,11 +26,31 @@
 
 <dependencyManagement>
     <dependencies>
-        <dependency>
-            <groupId>io.github.tf2jaguar.micro</groupId>
-            <artifactId>microcosm</artifactId>
-            <version>${last-version}</version>
-        </dependency>
+      <!-- microcosm start -->
+      <dependency>
+        <groupId>io.github.tf2jaguar.micro</groupId>
+        <artifactId>micro-logging</artifactId>
+        <version>${revision}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>io.github.tf2jaguar.micro</groupId>
+        <artifactId>micro-apollo</artifactId>
+        <version>${revision}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>io.github.tf2jaguar.micro</groupId>
+        <artifactId>micro-qconf</artifactId>
+        <version>${revision}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>io.github.tf2jaguar.micro</groupId>
+        <artifactId>micro-distribute</artifactId>
+        <version>${revision}</version>
+      </dependency>
+      <!-- microcosm end -->
     </dependencies>
 </dependencyManagement>
 ```

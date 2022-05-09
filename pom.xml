@@ -28,7 +28,7 @@
     </modules>
 
     <properties>
-        <revision>1.0.0.RELEASE</revision>
+        <revision>1.0.1-SNAPSHOT</revision>
         <compile.version>8</compile.version>
         <maven-gpg-plugin.version>1.6</maven-gpg-plugin.version>
         <nexus-staging-maven-plugin.version>1.6.7</nexus-staging-maven-plugin.version>
@@ -76,6 +76,12 @@
             <dependency>
                 <groupId>io.github.tf2jaguar.micro</groupId>
                 <artifactId>micro-qconf</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.tf2jaguar.micro</groupId>
+                <artifactId>micro-distribute</artifactId>
                 <version>${revision}</version>
             </dependency>
             <!-- microcosm end -->

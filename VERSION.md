@@ -1,14 +1,18 @@
 - [最新版本](#%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC)
 - [更新日历](#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%8E%86)
-  - [1.0.0-RELEASE](#100release)
+  - [1.0.0.RELEASE](#100release)
+  - [1.0.1-SNAPSHOT](#101-snapshot)
 
 
 # 最新版本
 
-[1.0.0.RELEASE](#100release)
+[1.0.1-SNAPSHOT](#101-snapshot)
 
 # 更新日历
 
+## 1.0.1-SNAPSHOT
+
+1. 调整pom依赖和 [guideline](GUIDELINE.md)
 
 ## 1.0.0.RELEASE
 
