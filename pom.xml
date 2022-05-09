@@ -28,6 +28,7 @@
         <module>micro-core</module>
         <module>micro-codec</module>
         <module>micro-except</module>
+        <module>micro-mybatis-plus</module>
     </modules>
 
     <properties>
@@ -106,6 +107,11 @@
                 <version>${revision}</version>
             </dependency>
 
+            <dependency>
+                <groupId>io.github.tf2jaguar.micro</groupId>
+                <artifactId>micro-mybatis-plus</artifactId>
+                <version>${revision}</version>
+            </dependency>
             <!-- microcosm end -->
 
             <!-- apollo -->

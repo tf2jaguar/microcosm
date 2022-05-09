@@ -82,3 +82,9 @@ Try to reduce mutual dependence between functions and functions. Each function i
 4. 拦截参数绑定异常 `BindException` 打印error日志，返回接口错误
 5. 拦截方法参数异常 `MethodArgumentNotValidException` 打印error日志，返回接口错误
 6. 拦截全局异常 `Exception` 打印error日志，返回接口错误
+
+## micro-mybatis-plus
+
+### 使用建议
+
+1. 使用其生成基础实体类等

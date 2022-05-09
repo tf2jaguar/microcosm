@@ -68,7 +68,12 @@
         <artifactId>micro-except</artifactId>
         <version>${revision}</version>
       </dependency>
-
+      
+      <dependency>
+        <groupId>io.github.tf2jaguar.micro</groupId>
+        <artifactId>micro-micro-mybatis-plus</artifactId>
+        <version>${revision}</version>
+      </dependency>
       <!-- microcosm end -->
     </dependencies>
 </dependencyManagement>

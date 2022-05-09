@@ -1,0 +1,6 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  io.github.tf2jaguar.micro.mybatisplus.config.MybatisPlusAutoConfiguration
+
+
+org.springframework.context.ApplicationListener=\
+  io.github.tf2jaguar.micro.mybatisplus.config.MybatisPlusApplicationListener
