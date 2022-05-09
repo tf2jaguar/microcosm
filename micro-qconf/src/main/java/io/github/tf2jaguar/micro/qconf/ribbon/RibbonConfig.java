@@ -77,7 +77,7 @@ public class RibbonConfig {
 /**
  * 通过Qconf获取服务器地址
  *
- * @author ：zhang guo dong
+ * @author ：zhangguodong
  * @since 2.3.0
  */
 class QconfBasedServerList extends ConfigurationBasedServerList {
