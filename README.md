@@ -53,3 +53,32 @@ Try to reduce mutual dependence between functions and functions. Each function i
 1. 在启动模块中添加 `micro-distribute` 模块的 pom 依赖
 2. 服务集群部署，请通过 `micro.distribute.machine-list=` 指定当前机器集群（单机时无需配置，默认1），用来计算分布式id生成的机器id；
 3. 服务部署在多个数据中心，请通过 `micro.distribute.data-center-id=` 指定当前数据中心id编号（单机时无需配置，默认1），用来计算分布式id生成的数据中心id
+
+## micro-core
+
+### 使用建议
+
+1. 在底层接口模块中添加 `micro-core` 模块的 pom 依赖
+2. 自定义服务异常枚举时实现 `ExceptionEnums` 如内置的常用异常状态枚举的实现方式 `public enum ErrorEnums implements ExceptionEnums`
+3. 封装了简单的分页请求入参和返回参数
+4. 封装了接口交互的出入参数格式类（通过 `micro-codec` 模块完成出入参数自动封装、解封装）
+
+## micro-codec
+
+### 使用建议
+
+1. 在启动模块中添加 `micro-codec` 模块的 pom 依赖
+2. 实现了对 `feign` 调用的出入参数驼峰转换
+3. 实现了对 `http` 调用出入参数驼峰转换，入参数 `params` 封装，出参数 `code、data、message` 封装
+4. 实现了对 `swagger` 展示中入参数、出参数封装
+
+## micro-except
+
+### 使用建议
+
+1. 在启动模块中添加 `micro-except` 模块的 pom 依赖
+2. 拦截服务异常 `ServerException` 打印error日志，返回接口错误
+3. 拦截业务异常 `BusinessException` 不打印error日志，只返回接口错误
+4. 拦截参数绑定异常 `BindException` 打印error日志，返回接口错误
+5. 拦截方法参数异常 `MethodArgumentNotValidException` 打印error日志，返回接口错误
+6. 拦截全局异常 `Exception` 打印error日志，返回接口错误

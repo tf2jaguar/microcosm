@@ -25,6 +25,9 @@
         <module>micro-apollo</module>
         <module>micro-qconf</module>
         <module>micro-distribute</module>
+        <module>micro-core</module>
+        <module>micro-codec</module>
+        <module>micro-except</module>
     </modules>
 
     <properties>
@@ -84,6 +87,25 @@
                 <artifactId>micro-distribute</artifactId>
                 <version>${revision}</version>
             </dependency>
+
+            <dependency>
+                <groupId>io.github.tf2jaguar.micro</groupId>
+                <artifactId>micro-core</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.tf2jaguar.micro</groupId>
+                <artifactId>micro-codec</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.tf2jaguar.micro</groupId>
+                <artifactId>micro-except</artifactId>
+                <version>${revision}</version>
+            </dependency>
+
             <!-- microcosm end -->
 
             <!-- apollo -->

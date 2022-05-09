@@ -50,6 +50,25 @@
         <artifactId>micro-distribute</artifactId>
         <version>${revision}</version>
       </dependency>
+      
+      <dependency>
+        <groupId>io.github.tf2jaguar.micro</groupId>
+        <artifactId>micro-core</artifactId>
+        <version>${revision}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>io.github.tf2jaguar.micro</groupId>
+        <artifactId>micro-codec</artifactId>
+        <version>${revision}</version>
+      </dependency>
+
+      <dependency>
+        <groupId>io.github.tf2jaguar.micro</groupId>
+        <artifactId>micro-except</artifactId>
+        <version>${revision}</version>
+      </dependency>
+
       <!-- microcosm end -->
     </dependencies>
 </dependencyManagement>
@@ -57,11 +76,11 @@
 
 ## api模块增加依赖
 
-这里主要增加一些核心类库，包括但不限于出入参数封装 [InputMessage](micro-core/src/main/java/org/jaguar/micro/core/input/InputMessage.java),
-[OutputMessage](micro-core/src/main/java/org/jaguar/micro/core/output/OutputMessage.java),
-服务异常 [ServerException](micro-core/src/main/java/org/jaguar/micro/core/error/ServerException.java),
-业务异常 [BusinessException](micro-core/src/main/java/org/jaguar/micro/core/error/BusinessException.java)，
-核心异常枚举 [ErrorEnums](micro-core/src/main/java/org/jaguar/micro/core/error/ErrorEnums.java)
+这里主要增加一些核心类库，包括但不限于出入参数封装 [InputMessage](micro-core/src/main/java/io/github/micro/core/input/InputMessage.java),
+[OutputMessage](micro-core/src/main/java/io/github/micro/core/output/OutputMessage.java),
+服务异常 [ServerException](micro-core/src/main/java/io/github/micro/core/error/ServerException.java),
+业务异常 [BusinessException](micro-core/src/main/java/io/github/micro/core/error/BusinessException.java)，
+核心异常枚举 [ErrorEnums](micro-core/src/main/java/io/github/micro/core/error/ErrorEnums.java)
 
 ### 配置模块依赖
 

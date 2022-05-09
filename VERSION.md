@@ -13,9 +13,15 @@
 
 ## 1.1.0-SNAPSHOT
 
+发布日期：`2021-07-01`
 
+1. micro-core： 自定义服务异常枚举时实现 `ExceptionEnums` 如内置的常用异常状态枚举的实现方式 `public enum ErrorEnums implements ExceptionEnums`；封装了简单的分页请求入参和返回参数，封装了接口交互的出入参数格式类（通过 `micro-codec` 模块完成出入参数自动封装、解封装） 
+2. micro-codec： 实现了对 `feign` 调用的出入参数驼峰转换；实现了对 `http` 调用出入参数驼峰转换，入参数 params 封装，出参数 `code、data、message` 封装；实现了对 `swagger` 展示中入参数、出参数封装
+3. micro-except： 实现类拦截服务异常 `ServerException`，打印error日志，返回接口错误 ；拦截业务异常 `BusinessException`，不打印error日志，只返回接口错误 ；拦截参数绑定异常 `BindException`，打印error日志，返回接口错误 ；拦截方法参数异常 `MethodArgumentNotValidException`，打印error日志，返回接口错误 ；拦截全局异常 `Exception`，打印error日志，返回接口错误
 
 ## 1.0.1.RELEASE
+
+发布日期：`2021-05-13`
 
 1. 调整pom依赖和 [guideline](GUIDELINE.md)
 

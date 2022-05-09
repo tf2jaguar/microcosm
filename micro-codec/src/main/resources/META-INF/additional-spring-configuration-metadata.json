@@ -1,0 +1,28 @@
+{
+  "groups": [
+    {
+      "name": "micro.codec",
+      "type": "io.github.tf2jaguar.micro.codec.config.CodecConfiguration",
+      "sourceType": "io.github.tf2jaguar.micro.codec.config.CodecConfiguration"
+    }
+  ],
+  "properties": [
+    {
+      "name": "micro.codec.enabled",
+      "type": "java.lang.Boolean",
+      "sourceType": "io.github.tf2jaguar.micro.codec.config.CodecConfiguration",
+      "defaultValue": true
+    },
+    {
+      "name": "micro.codec.request.body.params.enabled",
+      "type": "java.lang.Boolean",
+      "defaultValue": true
+    },
+    {
+      "name": "micro.codec.response.body.result.enabled",
+      "type": "java.lang.Boolean",
+      "defaultValue": true
+    }
+  ],
+  "hints": []
+}
