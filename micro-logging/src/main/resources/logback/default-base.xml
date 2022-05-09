@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+Base logback configuration provided for compatibility with Spring Boot 1.1
+-->
+<included>
+    <timestamp key="TIMESTAMP" datePattern="yyyy-MM-dd"/>
+    <property name="LOGS_FOLDER" value="${LOGS_FOLDER:-logs}"/>
+    <property name="LOG_FILE_ALL" value="${LOGS_FOLDER}/all.log"/>
+    <property name="LOG_FILE_ERROR" value="${LOGS_FOLDER}/error.log"/>
+    <property name="LOG_FILE_API" value="${LOGS_FOLDER}/api.log"/>
+
+    <!--<include resource="org/springframework/boot/logging/logback/base.xml"/>===begin-->
+    <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+    <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
+
+    <!-- all 日志 -->
+    <appender name="ALL-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <file>${LOG_FILE_ALL}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE_ALL}.%d{${FILE_NAME_DATE_PATTERN:-yyyy-MM-dd-HH}}.log</fileNamePattern>
+            <maxHistory>${LOG_FILE_MAX_HISTORY:-0}</maxHistory>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>DENY</onMatch>
+            <onMismatch>ACCEPT</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- http 请求日志文件 -->
+    <appender name="API-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_FILE_API}</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE_API}.%d{${FILE_NAME_DATE_PATTERN:-yyyy-MM-dd-HH}}.log</fileNamePattern>
+            <maxHistory>${LOG_FILE_MAX_HISTORY:-0}</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <!-- error 日志 -->
+    <appender name="ERROR-FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+        <file>${LOG_FILE_ERROR}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_FILE_ERROR}.%d{${FILE_NAME_DATE_PATTERN:-yyyy-MM-dd-HH}}.log</fileNamePattern>
+            <maxHistory>${LOG_FILE_MAX_HISTORY:-0}</maxHistory>
+        </rollingPolicy>
+
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+</included>

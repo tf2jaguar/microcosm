@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 按天处理日志文件 -->
+    <property name="FILE_NAME_DATE_PATTERN" value="yyyy-MM-dd"/>
+    <property name="FILE_LOG_PATTERN" value="%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level [%thread] [%X{session_id}] %logger{50} [%line]: %msg%n"/>
+    <property name="LOGS_FOLDER" value="${APP_LOG_HOME:-logs}"/>
+
+    <include resource="logback/default-base.xml"/>
+    <include resource="third-log.xml"/>
+
+    <springProfile name="production">
+        <root level="INFO">
+            <appender-ref ref="ALL-FILE"/>
+            <appender-ref ref="ERROR-FILE"/>
+        </root>
+        <logger name="io.github.tf2jaguar.micro.logging.filter.LogFilter" level="INFO" additivity="false">
+            <appender-ref ref="API-FILE"/>
+        </logger>
+    </springProfile>
+
+    <springProfile name="!production">
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="ALL-FILE"/>
+            <appender-ref ref="ERROR-FILE"/>
+        </root>
+        <logger name="io.github.tf2jaguar.micro.logging.filter.LogFilter" level="INFO" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="API-FILE"/>
+        </logger>
+    </springProfile>
+</configuration>
