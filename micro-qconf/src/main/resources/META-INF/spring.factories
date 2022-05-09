@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+io.github.tf2jaguar.micro.qconf.config.QconfSpringBootAutoConfiguration
