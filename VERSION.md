@@ -3,6 +3,7 @@
   - [1.0.0.RELEASE](#100release)
   - [1.0.1.RELEASE](#101release)
   - [1.1.0.RELEASE](#110release)
+  - [1.1.1-SNAPSHOT](#111-snapshot)
 
 
 # 最新版本
@@ -10,6 +11,12 @@
 [1.1.0.RELEASE](#110release)
 
 # 更新日历
+
+## 1.1.1-SNAPSHOT
+
+发布日期：`2021-07-02`
+
+1. 修复 revision 重命名问题
 
 ## 1.1.0.RELEASE
 
