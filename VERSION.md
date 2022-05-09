@@ -2,6 +2,7 @@
 - [更新日历](#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%8E%86)
   - [1.0.0.RELEASE](#100release)
   - [1.0.1.RELEASE](#101release)
+  - [1.1.0-SNAPSHOT](#110-snapshot)
 
 
 # 最新版本
@@ -9,6 +10,10 @@
 [1.0.1.RELEASE](#101release)
 
 # 更新日历
+
+## 1.1.0-SNAPSHOT
+
+
 
 ## 1.0.1.RELEASE
 
