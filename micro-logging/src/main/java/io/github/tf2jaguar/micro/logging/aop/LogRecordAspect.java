@@ -23,7 +23,7 @@ import java.util.UUID;
 @Aspect
 @Component
 public class LogRecordAspect {
-    private static final Logger log = LoggerFactory.getLogger(LogFilter.class);
+    private static final Logger log = LoggerFactory.getLogger(LogRecordAspect.class);
 
     public static final String MDC_SESSION_ID = "session_id";
 
