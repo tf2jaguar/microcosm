@@ -1,6 +1,6 @@
 - [最新版本](#%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC)
 - [更新日历](#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%8E%86)
-  - [1.1.2-SNAPSHOT](#112-snapshot)
+  - [1.1.2.RELEASE](#112release)
   - [1.1.1.RELEASE](#111release)
   - [1.1.0.RELEASE](#110release)
   - [1.0.1.RELEASE](#101release)
@@ -9,11 +9,11 @@
 
 # 最新版本
 
-[1.1.1.RELEASE](#111release)
+[1.1.2.RELEASE](#112release)
 
 # 更新日历
 
-## 1.1.2-SNAPSHOT
+## 1.1.2.RELEASE
 
 发布日期：`2021-07-02`
 
