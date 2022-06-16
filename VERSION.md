@@ -1,5 +1,6 @@
 - [最新版本](#%E6%9C%80%E6%96%B0%E7%89%88%E6%9C%AC)
 - [更新日历](#%E6%9B%B4%E6%96%B0%E6%97%A5%E5%8E%86)
+  - [1.1.3-SNAPSHOT](#113-snapshot)
   - [1.1.2.RELEASE](#112release)
   - [1.1.1.RELEASE](#111release)
   - [1.1.0.RELEASE](#110release)
@@ -12,6 +13,12 @@
 [1.1.2.RELEASE](#112release)
 
 # 更新日历
+
+## 1.1.3-SNAPSHOT
+
+发布日期：`2022-06-16`
+
+1. 调整 logging 模块中追踪方法运行时间的开关以及日志打印级别
 
 ## 1.1.2.RELEASE
 
