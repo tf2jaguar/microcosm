@@ -18,4 +18,6 @@ public @interface LogRecord {
     boolean setSessionIdBeforeRun() default true;
 
     boolean removeSessionIdAfterRun() default true;
+
+    boolean traceMethodRunTime() default false;
 }

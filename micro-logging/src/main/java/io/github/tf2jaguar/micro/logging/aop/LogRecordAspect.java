@@ -43,16 +43,17 @@ public class LogRecordAspect {
             MDC.put(MDC_SESSION_ID, UUID.randomUUID().toString());
         }
 
-        if (log.isDebugEnabled()) {
-            log.debug(String.format("run method %s args: %s", methodName, Arrays.toString(args)));
+        long startTime = 0, costTime = 0;
+        if (log.isTraceEnabled() && logRecordAnnotation.traceMethodRunTime()) {
+            log.trace(String.format("run method %s args: %s", methodName, Arrays.toString(args)));
+            startTime = System.currentTimeMillis();
         }
 
-        long startTime = System.currentTimeMillis();
         Object result = proceedingJoinPoint.proceed();
-        long costTime = System.currentTimeMillis() - startTime;
 
-        if (log.isDebugEnabled()) {
-            log.debug(String.format("run method %s cost:%dms", methodName, costTime));
+        if (log.isTraceEnabled() && logRecordAnnotation.traceMethodRunTime()) {
+            costTime = System.currentTimeMillis() - startTime;
+            log.trace(String.format("run method %s cost:%dms", methodName, costTime));
         }
 
         if (logRecordAnnotation.removeSessionIdAfterRun()) {
