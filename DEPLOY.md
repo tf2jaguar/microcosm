@@ -4,56 +4,67 @@
 
 ## 示例
 
-发布`snapshot`版本。比如，主版本号最大的`5.x`分支的下一个版本被管理员置为`5.2.0-SNAPSHOT`，开发者增加了一个`feature`实现，这个`commit`被认为达到发版的要求，在本地可以参考执行：
+发布`snapshot`版本。比如，主版本号最大的`1.x`分支的下一个版本被管理员置为`1.2.0-SNAPSHOT`，开发者增加了一个`feature`实现，这个`commit`被认为达到发版的要求，在本地可以参考执行：
 
 ```shell
 git pull
 
-# 切换到5.x分支
-git checkout 5.x
+# 切换到1.x分支
+git checkout 1.x
 
+# 修改pom版本
+编辑项目根目录下的 pom.xml 文件中的 `<properties>` 下的 `<revision>x.x.x.RELEASE</revision>` 标签中版本信息
+修改为最新 RELEASE版本加1，并将后缀变为 `SNAPSHOT`（如当前最新版本为 `1.2.8.RELEASE` 则修改为 `1.2.9-SNAPSHOT`）
+
+# 提交最后一次的改动，这里的 commit 内容为：当前的snapshot版本号 + 变更内容
+git add pom.xml && git commit -m '1.2.9-SNAPSHOT'
+ 
 # 主版本分支打tag
-git tag 5.2.0-SNAPSHOT
+git tag 1.2.9-SNAPSHOT
 
 # 推送tag到git服务器
-git push $ORIGIN 5.2.0-SNAPSHOT
+git push $ORIGIN 1.2.9-SNAPSHOT
 
 # 发版
-mvn clean deploy -D revision=5.2.0-SNAPSHOT -P deploy
+mvn clean deploy -D revision=1.2.9-SNAPSHOT -P deploy
 ```
 
-发布`release`版本。当上个2.0-SNAPSHOT`版本发布之后，陆续又有几个`feature`添加了进来且发布了`SNAPSHOT`版本，考虑将这些`feature`或者提升发布到正式版`5.2.0.RELEASE`，具体可以参考：
+发布`release`版本。当上个示例的`1.2.9-SNAPSHOT`版本发布之后，陆续又有几个`feature`添加了进来且发布了`SNAPSHOT`版本，考虑将这些`feature`或者提升发布到正式版`1.2.9.RELEASE`，具体可以参考：
 
 ```shell
+# 确认切换到当前分支
+git checkout 1.x
+
+# 更新下代码，检查下 `git log` 确保当前代码正确
 git pull
 
-# 切换到master
+# 切换到主版本分支
 git checkout master
 
-# 合并主版本分支
-git merge 5.x
+# 合并开发分支到主版本分支
+git merge 1.x
+
+# 修改pom版本
+编辑项目根目录下的 pom.xml 文件中的 `<properties>` 下的 `<revision>x.x.x.RELEASE</revision>` 标签中版本信息
+修改为当前最新 SNAPSHOT版本编号，并将后缀变为 `.RELEASE`（如当前合并过来的1.x分支的最新SNAPSHOT版本为 `1.2.9-SNAPSHOT` 则修改为 `1.2.9.RELEASE`）
+
+# 在发版日历中添加发版描述
+修改发版日历 [version](VERSION.md) 
+1. 修改《当前最新版本》
+2. 修改《更新日历》增加当前版本的版本号、发布时间、贡献人、变更内容 （倒序，在最前边添加即可）
+3. 修改《目录》增加当前版本的版本号
+
+# 提交最后一次的改动，这里的 commit 内容为：当前的RELEASE版本号 + 变更内容
+git add pom.xml VERSION.md && git commit -m '1.2.9.RELEASE'
 
 # master分支打tag
-git tag 5.2.0.RELEASE
+git tag 1.2.9.RELEASE
 
 # 推送tag到git服务器
-git push $ORIGIN 5.2.0.RELEASE
+git push $ORIGIN 1.2.9.RELEASE
 
 # 发版
-mvn clean deploy -D revision=5.2.0.RELEASE -P deploy
-
-
-# 建议准备下版本revision，例如下版本定为5.3.0，做法是
-git checkout 5.x
-
-# 编辑最外层pom.xml，将revision改为下个版本的snapshot并提交，
-# 则修改revision为5.3.0-SNAPSHOT，修改并保存后
-
-git add pom.xml
-
-git commit -m "next stage 5.3.0"
-
-git push $ORIGIN 5.x
+mvn clean deploy -D revision=1.2.9.RELEASE -P deploy
 ```
 
 ## 详述
@@ -77,12 +88,12 @@ git push $ORIGIN 5.x
 
 ## 特殊版本-修订历史版本
 
-接上述示例，此时`5.x`分支已经是`5.3`之后的版本了，如果这时发现`5.2.0.RELEASE`（或更早的比如 `4.3.5.RELEASE`）有`bug`或某代码块实现有更好的方式或缺少了重要的`log`，建议的做法是，
+接上述示例，此时`1.x`分支已经是`1.3`之后的版本了，如果这时发现`1.2.0.RELEASE`（或更早的比如 `1.0.5.RELEASE`）有`bug`或某代码块实现有更好的方式或缺少了重要的`log`，建议的做法是，
 
-1. 切到`master`分支，从`5.2.0.RELEASE`对应的`commit ID``checkout`出来一个新分支 `5.2.1-SNAPSHOT`；
+1. 切到`master`分支，从`1.2.0.RELEASE`对应的`commit ID``checkout`出来一个新分支 `1.2.1-SNAPSHOT`；
 
-2. 本地开发完后，在本地进行编译、测试；
+2. 本地开发完后，在本地进行编译、测试、预发；
 
-3. 合格后，合并到`master`上，打`5.2.1.RELEASE``tag`、推远程；
+3. 合格后，合并到`master`上，打`1.2.1.RELEASE` `tag`、推远程；
 
-NOTE: 要注意的时，如果是修改`bug`，一定要在文档维护`bug`的来源。
+NOTE: **要注意的时，如果是修改`bug`，一定要在文档维护`bug`的来源、场景以及影响范围。**
